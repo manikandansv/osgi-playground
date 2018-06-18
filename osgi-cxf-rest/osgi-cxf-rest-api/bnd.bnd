@@ -1,0 +1,4 @@
+Export-Package: sv.osgi.cxf.rest.api
+Import-Package: \
+	javax.xml.bind.annotation,\
+	*

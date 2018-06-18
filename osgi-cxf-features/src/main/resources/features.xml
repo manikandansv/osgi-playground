@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+	name="osgi-cxf-${project.version}">
+
+	<repository>mvn:org.apache.aries.rsa/rsa-features/1.9.0/xml/features
+	</repository>
+
+	<repository>mvn:org.apache.cxf.dosgi/cxf-dosgi/2.1.0/xml/features
+	</repository>
+
+<!-- 	<feature name="osgi-remote-dependencies" version="${project.version}">
+		<bundle>mvn:org.osgi/org.osgi.service.remoteserviceadmin/1.1.0
+		</bundle>
+	</feature> -->
+	
+	<feature name="jaxb-dependencies" version="${project.version}">
+		<bundle>mvn:javax.xml.bind/jaxb-api/2.3.0</bundle>
+		<bundle>mvn:com.sun.xml.bind/jaxb-core/2.3.0</bundle>
+	</feature>
+
+	<feature name="cxf-dependencies" version="${project.version}">
+		<bundle>mvn:org.osgi/org.osgi.service.blueprint/1.0.2</bundle>
+		<feature>cxf-http-jetty</feature>
+		<feature>cxf-dosgi-provider-rs</feature>
+		<!-- <feature>cxf-rs-description-swagger2</feature> -->
+	</feature>
+
+	<feature name="aries-dependencies" version="${project.version}">
+		<!-- <feature>aries-rsa-core</feature>
+		<feature>aries-rsa-discovery-config</feature>
+		<feature>aries-rsa-discovery-local</feature> -->
+		<feature>aries-rsa-discovery-zookeeper</feature>
+		 <feature>aries-rsa-discovery-zookeeper-server</feature>
+		<!--  <feature>aries-rsa-provider-fastbin</feature>
+		<feature>aries-rsa-provider-tcp</feature> -->
+	</feature>
+
+	<feature name="osgi-cxf-rest-impl" version="${project.version}">
+		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-api/${project.version}</bundle>
+		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-impl/${project.version}</bundle>
+	</feature>
+
+	<feature name="osgi-cxf-rest-client" version="${project.version}">
+	<!-- 	<feature>cxf-dosgi-provider-rs</feature>
+		<feature>aries-rsa-discovery-zookeeper</feature> -->
+		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-api/${project.version}</bundle>
+		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-client/${project.version}
+		</bundle>
+	</feature>
+
+
+</features>

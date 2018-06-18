@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>sv.osgi-pg</groupId>
+		<artifactId>osgi-cxf-rest</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<packaging>bundle</packaging>
+	<artifactId>osgi-cxf-rest-client</artifactId>
+	<name>osgi-cxf-rest-client</name>
+	<properties>
+		<topDirectoryLocation>../..</topDirectoryLocation>
+		<servicemix.osgi.import.pkg>
+			sv.osgi.cxf.rest.api,*
+		</servicemix.osgi.import.pkg>
+		<servicemix.osgi.export.pkg>sv.osgi.cxf.rest.client</servicemix.osgi.export.pkg>
+		<osgi.service.component>*</osgi.service.component>
+		<servicemix.osgi.failok>true</servicemix.osgi.failok>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>sv.osgi-pg</groupId>
+			<artifactId>osgi-cxf-rest-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.rsa</groupId>
+			<artifactId>org.apache.aries.rsa.spi</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.annotation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.cmpn</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+
+		<defaultGoal>install</defaultGoal>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					 <obrRepository>NONE</obrRepository> 
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<_include>-bnd.bnd</_include>
+						<_dsannotations>*</_dsannotations>
+						<_metatypeannotations>*</_metatypeannotations>
+						<Import-Package>${servicemix.osgi.import.pkg}</Import-Package>
+						<Export-Package>${servicemix.osgi.export.pkg}</Export-Package>
+						<!-- <Private-Package></Private-Package> -->
+						<Service-Component>${osgi.service.component}</Service-Component>
+						<_failok>${servicemix.osgi.failok}</_failok>
+					</instructions>
+				</configuration>
+
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-indexer-maven-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<localURLs>REQUIRED</localURLs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>index</id>
+						<goals>
+							<goal>index</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+
+	</build>
+	
+</project>
