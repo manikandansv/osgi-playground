@@ -34,6 +34,11 @@
 		<!--  <feature>aries-rsa-provider-fastbin</feature>
 		<feature>aries-rsa-provider-tcp</feature> -->
 	</feature>
+	
+	<feature name="servlet-dependencies" version="${project.version}">
+		<!-- <bundle>mvn:javax.servlet/javax.servlet-api/4.0.0</bundle> -->
+		<bundle>mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
+	</feature>
 
 	<feature name="osgi-cxf-rest-impl" version="${project.version}">
 		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-api/${project.version}</bundle>
@@ -46,6 +51,10 @@
 		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-api/${project.version}</bundle>
 		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-client/${project.version}
 		</bundle>
+	</feature>
+	
+	<feature name="osgi-cxf-rest-security" version="${project.version}">
+		<bundle>mvn:sv.osgi-pg/osgi-cxf-rest-security/${project.version}</bundle>
 	</feature>
 
 

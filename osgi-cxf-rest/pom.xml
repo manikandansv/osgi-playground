@@ -13,6 +13,7 @@
 		<module>osgi-cxf-rest-api</module>
 		<module>osgi-cxf-rest-impl</module>
 		<module>osgi-cxf-rest-client</module>
+		<module>osgi-cxf-rest-security</module>
 	</modules>
 	<properties>
 		<java.version>1.8</java.version>
@@ -51,6 +52,7 @@
 		<cxf.version>3.2.0</cxf.version>
 		<jackson.version>2.9.5</jackson.version>
 		<bundle.manifest.version>2</bundle.manifest.version>
+		 <servlet.version>3.0</servlet.version>
 	</properties>
 
 	<dependencyManagement>

@@ -16,7 +16,8 @@ import sv.osgi.cxf.rest.api.TaskResource;
 		property = //
 		{ "service.exported.interfaces=*", //
 		  "service.exported.configs=org.apache.cxf.rs", //
-		  "org.apache.cxf.rs.address=/mytasks" //
+		  "org.apache.cxf.rs.address=/mytasks", //
+		  "org.apache.cxf.rs.httpservice.context=/api"
 		} //
 )
 
