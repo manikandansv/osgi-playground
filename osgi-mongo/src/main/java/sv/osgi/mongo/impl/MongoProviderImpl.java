@@ -28,7 +28,7 @@ import com.mongodb.connection.SocketSettings;
 import sv.osgi.mongo.api.MongoClientConfiguration;
 import sv.osgi.mongo.api.MongoProvider;
 
-@Component(service = MongoProvider.class)
+@Component(name="MongoProvider",service = MongoProvider.class)
 @Designate(ocd = MongoClientConfiguration.class, factory = true)
 public class MongoProviderImpl implements MongoProvider {
 

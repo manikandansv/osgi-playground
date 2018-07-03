@@ -11,7 +11,7 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 import sv.osgi.mongo.api.MongoProvider;
 import sv.osgi.mongo.api.MongoProviderFactory;
 
-@Component(enabled = true, immediate = true, service = MongoProviderFactory.class)
+@Component(name="MongoProviderFactory",enabled = true, immediate = true, service = MongoProviderFactory.class)
 public class MongoProviderFactoryImpl implements MongoProviderFactory {
 
 	private Map<String, MongoProvider> map;
