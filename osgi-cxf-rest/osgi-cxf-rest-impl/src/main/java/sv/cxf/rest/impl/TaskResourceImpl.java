@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import sv.osgi.cxf.rest.api.Task;
 import sv.osgi.cxf.rest.api.TaskResource;
+import sv.osgi.mongo.client.MongoClientCommand;
 
 @Component//
 (//
@@ -16,12 +18,13 @@ import sv.osgi.cxf.rest.api.TaskResource;
 		property = //
 		{ "service.exported.interfaces=*", //
 		  "service.exported.configs=org.apache.cxf.rs", //
-		  "org.apache.cxf.rs.address=/mytasks", //
+		  "org.apache.cxf.rs.address=/tasks", //
 		  "org.apache.cxf.rs.httpservice.context=/api"
 		} //
 )
 
 public class TaskResourceImpl implements TaskResource {
+	
 	Map<Integer, Task> taskMap;
 
 	public TaskResourceImpl() {
@@ -37,6 +40,9 @@ public class TaskResourceImpl implements TaskResource {
 		task.setDescription("");
 		add(task);
 	}
+	
+	@Reference
+	private MongoClientCommand mongoClientCommand;
 
 	@Override
 	public Task get(Integer id) {
@@ -55,6 +61,13 @@ public class TaskResourceImpl implements TaskResource {
 
 	@Override
 	public Task[] getAll() {
+		System.out.println("Inside getAll");
+		Task task = new Task();
+		task.setId(3);
+		task.setTitle(mongoClientCommand==null?"NULL":mongoClientCommand.testConnection());
+		task.setDescription("");
+		add(task);
+		update(3, task);
 		return taskMap.values().toArray(new Task[] {});
 	}
 

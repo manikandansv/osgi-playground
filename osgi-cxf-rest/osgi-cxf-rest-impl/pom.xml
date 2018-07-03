@@ -44,6 +44,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>sv.osgi-pg</groupId>
+			<artifactId>osgi-mongo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

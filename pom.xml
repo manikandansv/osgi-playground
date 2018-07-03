@@ -9,11 +9,14 @@
 
 	<properties>
 		<topDirectoryLocation>..</topDirectoryLocation>
+		<build-helper-maven-plugin.version>1.8</build-helper-maven-plugin.version>
 	</properties>
 
 
 	<modules>
 		<module>osgi-cxf-features</module>
 		<module>osgi-cxf-rest</module>
+		<module>osgi-mongo</module>
+		<module>osgi-configuration</module>
 	</modules>
 </project>
