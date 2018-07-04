@@ -1,2 +1,2 @@
 -dsannotations: *
-Export-Package: sv.osgi.mongo.api.*,sv.osgi.mongo.client
+Export-Package: sv.osgi.mongo.api.*,sv.osgi.mongo.client.*

@@ -8,20 +8,22 @@ import com.mongodb.client.MongoDatabase;
 import sv.osgi.mongo.api.MongoProvider;
 import sv.osgi.mongo.api.MongoProviderFactory;
 
-@Component(enabled=true, immediate=true, service=MongoClientCommand.class)
+@Component(enabled = true, immediate = true, service = MongoClientCommand.class)
 public class MongoClientCommand {
 
 	@Reference
 	private MongoProviderFactory mongoProviderFactory;
-	
+
 	public String testConnection() {
-		
+
 		MongoProvider mp = mongoProviderFactory.getMongoProvider("nigazhchiClient");
-	
+
 		MongoDatabase mb = mp.getMongoDatabase();
-	
-		return mb.getName();
-	
+
+		return String.valueOf(mb.getCollection("nigazhchi").countDocuments()==0?"Empty Documents":mb.getCollection("nigazhchi").countDocuments());
+
+		// return mb.getName();
+
 	}
-	
+
 }

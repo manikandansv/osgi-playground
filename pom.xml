@@ -14,9 +14,10 @@
 
 
 	<modules>
-		<module>osgi-cxf-features</module>
-		<module>osgi-cxf-rest</module>
-		<module>osgi-mongo</module>
 		<module>osgi-configuration</module>
+		<module>osgi-cxf-features</module>
+		<module>osgi-mongo</module>
+		<module>osgi-jdbc</module>
+		<module>osgi-cxf-rest</module>
 	</modules>
 </project>

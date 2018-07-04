@@ -1,5 +1,6 @@
 package sv.cxf.rest.impl;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.osgi.service.component.annotations.Reference;
 
 import sv.osgi.cxf.rest.api.Task;
 import sv.osgi.cxf.rest.api.TaskResource;
+import sv.osgi.jdbc.client.JdbcClientCommand;
 import sv.osgi.mongo.client.MongoClientCommand;
 
 @Component//
@@ -43,6 +45,9 @@ public class TaskResourceImpl implements TaskResource {
 	
 	@Reference
 	private MongoClientCommand mongoClientCommand;
+	
+	@Reference
+	private JdbcClientCommand jdbcClientCommand;
 
 	@Override
 	public Task get(Integer id) {
@@ -68,6 +73,18 @@ public class TaskResourceImpl implements TaskResource {
 		task.setDescription("");
 		add(task);
 		update(3, task);
+		Task task1 = new Task();
+		try {
+			task1.setId(4);
+			task1.setTitle(jdbcClientCommand==null?"NULL":jdbcClientCommand.testConnection());
+			task1.setDescription("");
+			add(task1);
+			update(4, task1);
+		} catch (SQLException e) {
+			
+			System.out.println(e.getMessage());
+		}
+	
 		return taskMap.values().toArray(new Task[] {});
 	}
 

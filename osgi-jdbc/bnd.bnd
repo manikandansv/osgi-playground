@@ -1,0 +1,2 @@
+-dsannotations: *
+Export-Package: sv.osgi.jdbc.api.*,sv.osgi.jdbc.client.*

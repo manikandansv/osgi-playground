@@ -85,6 +85,11 @@
 									<type>config</type>
 									<classifier>sv.osgi.mongo.impl.MongoProviderImpl-nigazhchi</classifier>
 								</artifact>
+								<artifact>
+									<file>${project.build.outputDirectory}/config/jdbc/sv.osgi.jdbc.impl.SqlDatasourceProviderImpl-nigazhchi.cfg</file>
+									<type>config</type>
+									<classifier>sv.osgi.jdbc.impl.SqlDatasourceProviderImpl-nigazhchi</classifier>
+								</artifact>
 							</artifacts>
 						</configuration>
 					</execution>
